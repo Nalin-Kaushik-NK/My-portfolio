@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventurer's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern RPG Theme */
+        :root {
+            --parchment: #f5eedc;
+            --ink: #3a3226;
+            --gold: #c9a227;
+            --leather: #8b5a2b;
+            --steel: #6b7b8c;
+            --emerald: #2e8b57;
+            --ruby: #9c1a2c;
+            --deep-blue: #2a4466;
+            --light-parchment: #f8f4e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Times New Roman', serif;
+            background-color: var(--parchment);
+            color: var(--ink);
+            background-image: url('https://images.unsplash.com/photo-1605106715994-18d3fec838b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        /* Main UI Container */
+        .rpg-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            background-color: var(--light-parchment);
+            border: 8px double var(--leather);
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--leather), var(--deep-blue));
+            padding: 1.5rem;
+            border-bottom: 4px solid var(--gold);
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 3rem;
+            color: var(--gold);
+            text-shadow: 3px 3px 0 var(--ink);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--parchment);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--gold);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--gold);
+            color: var(--ink);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            background-color: rgba(248, 244, 232, 0.7);
+            margin: 2rem 0;
+            border: 4px solid var(--leather);
+            border-radius: 4px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+        }
+
+        .hero-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .character-sprite {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 8px double var(--gold);
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 3rem 2rem;
+            background-color: var(--light-parchment);
+            border: 4px solid var(--leather);
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--deep-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background-color: var(--parchment);
+            padding: 1.5rem;
+            border: 2px solid var(--leather);
+            border-radius: 4px;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .stat-card h3 {
+            color: var(--emerald);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-bar {
+            height: 20px;
+            background-color: #e0d8c0;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--emerald), var(--deep-blue));
+            border-radius: 10px;
+        }
+
+        /* Quests Section */
+        .quest-log {
+            padding: 3rem 2rem;
+            background-color: var(--light-parchment);
+            border: 4px solid var(--leather);
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .quests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quest-card {
+            background-color: var(--parchment);
+            padding: 1.5rem;
+            border: 2px solid var(--leather);
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .quest-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .quest-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--emerald);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .quest-reward {
+            color: var(--gold);
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* Social Links Section */
+        .guild-hall {
+            padding: 3rem 2rem;
+            background-color: var(--light-parchment);
+            border: 4px solid var(--leather);
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .social-card {
+            background-color: var(--parchment);
+            padding: 1.5rem;
+            border: 2px solid var(--leather);
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .social-card:hover {
+            transform: scale(1.05);
+        }
+
+        .social-card i {
+            font-size: 2.5rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--deep-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            color: var(--ink);
+        }
+
+        /* Hobbies Section */
+        .side-quests {
+            padding: 3rem 2rem;
+            background-color: var(--light-parchment);
+            border: 4px solid var(--leather);
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hobby-card {
+            background-color: var(--parchment);
+            padding: 1.5rem;
+            border: 2px solid var(--leather);
+            border-radius: 24px;
+            transition: transform 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hobby-card h3 {
+            color: var(--ruby);
+            margin-bottom: 1rem;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Contact Section */
+        .tavern {
+            padding: 3rem 2rem;
+            background-color: var(--light-parchment);
+            border: 4px solid var(--leather);
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .form-input {
+            padding: 0.8rem;
+            background-color: var(--parchment);
+            border: 2px solid var(--leather);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .submit-btn {
+            padding: 0.8rem;
+            background-color: var(--deep-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--gold);
+            color: var(--ink);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background-color: var(--deep-blue);
+            color: white;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .nav-links {
+                gap: 0.5rem;
+            }
+            
+            .character-sprite {
+                margin: 0 auto;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="rpg-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Adventurer's Log</div>
+            <nav class="nav-links">
+                <a href="#about">Character</a>
+                <a href="#stats">Attributes</a>
+                <a href="#guild">Guild</a>
+                <a href="#side-quests">Hobbies</a>
+                <a href="#quests">Quests</a>
+                <a href="#tavern">Tavern</a>
+            </nav>
+        </header>
+
+        <!-- Hero/Character Section -->
+        <section id="about" class="hero">
+            <div class="hero-text">
+                <h1>Lvl 35 Web Knight</h1>
+                <p>Greetings, traveler! I am Sir Code-a-lot, a seasoned adventurer in the realm of web development. With my trusty keyboard and enchanted IDE, I've battled countless bugs and conquered many frameworks.</p>
+                <p>My journey began in the humble village of HTML, where I first learned to structure my thoughts. Since then, I've trained in the mystical arts of CSS and JavaScript, earning my place among the Knights of Responsive Design.</p>
+                <button class="submit-btn" style="margin-top: 1rem;">View Quest Log</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://placehold.co/300x300" alt="Pixel art character portrait" class="character-sprite floating">
+            </div>
+        </section>
+
+        <!-- Stats/Attributes Section -->
+        <section id="stats" class="stats">
+            <h2 class="section-title">CHARACTER ATTRIBUTES</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>HTML Mastery</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 95%"></div>
+                    </div>
+                    <p>Wielder of semantic markup and accessibility spells</p>
+                </div>
+                <div class="stat-card">
+                    <h3>CSS Wizardry</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 90%"></div>
+                    </div>
+                    <p>Conjurer of responsive layouts and animations</p>
+                </div>
+                <div class="stat-card">
+                    <h3>JavaScript Power</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 85%"></div>
+                    </div>
+                    <p>Master of ES6+ and framework combat</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Debugging Luck</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 75%"></div>
+                    </div>
+                    <p>Finder of needles in stack trace haystacks</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Backend Stamina</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 70%"></div>
+                    </div>
+                    <p>Endurer of server crashes and database migrations</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Git Navigation</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 80%"></div>
+                    </div>
+                    <p>Survivor of merge conflicts and rebase battles</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Links Section -->
+        <section id="guild" class="guild-hall">
+            <h2 class="section-title">GUILD CONNECTIONS</h2>
+            <div class="social-grid">
+                <div class="social-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Explore my code repositories</p>
+                    <a href="#" class="social-link">Visit Guild</a>
+                </div>
+                <div class="social-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Professional network</p>
+                    <a href="#" class="social-link">Visit Guild</a>
+                </div>
+                <div class="social-card">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter</h3>
+                    <p>Daily updates</p>
+                    <a href="#" class="social-link">Visit Guild</a>
+                </div>
+                <div class="social-card">
+                    <i class="fab fa-codepen"></i>
+                    <h3>CodePen</h3>
+                    <p>Creative experiments</p>
+                    <a href="#" class="social-link">Visit Guild</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="side-quests" class="side-quests">
+            <h2 class="section-title">SIDE QUESTS</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <h3>🎮 Retro Gaming</h3>
+                    <p>Exploring classic GBA titles and pixel art wonders</p>
+                </div>
+                <div class="hobby-card">
+                    <h3>🎨 Pixel Art</h3>
+                    <p>Creating 16-bit style sprites and textures</p>
+                </div>
+                <div class="hobby-card">
+                    <h3>📚 RPGs</h3>
+                    <p>Playing and analyzing game design</p>
+                </div>
+                <div class="hobby-card">
+                    <h3>🎵 Chiptune</h3>
+                    <p>Composing retro-inspired music</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Completed Quests Section -->
+        <section id="quests" class="quest-log">
+            <h2 class="section-title">COMPLETED QUESTS</h2>
+            <div class="quests-grid">
+                <div class="quest-card">
+                    <span class="quest-status">Completed</span>
+                    <h3>The Responsive Castle</h3>
+                    <p>A mighty fortress that adapts to all screen sizes. Defended against mobile goblins and desktop dragons alike.</p>
+                    <p class="quest-reward">Reward: +50 Gold, Media Query Medal</p>
+                </div>
+                <div class="quest-card">
+                    <span class="quest-status">Completed</span>
+                    <h3>Framework Forest</h3>
+                    <p>Navigated the dense thickets of React, Vue, and Angular. Emerged with component-based wisdom.</p>
+                    <p class="quest-reward">Reward: +75 Gold, Virtual DOM Amulet</p>
+                </div>
+                <div class="quest-card">
+                    <span class="quest-status">Completed</span>
+                    <h3>API Dungeon</h3>
+                    <p>Delved deep to retrieve precious data from RESTful endpoints and GraphQL labyrinths.</p>
+                    <p class="quest-reward">Reward: +60 Gold, JSON Cloak</p>
+                </div>
+                <div class="quest-card">
+                    <span class="quest-status">Completed</span>
+                    <h3>CSS Grid Gauntlet</h3>
+                    <p>Mastered the ancient art of two-dimensional layout, defeating float beasts and position traps.</p>
+                    <p class="quest-reward">Reward: +45 Gold, Flexbox Gauntlets</p>
+                </div>
+                <div class="quest-card">
+                    <span class="quest-status">Completed</span>
+                    <h3>Browser Compatibility Swamp</h3>
+                    <p>Survived the murky waters of cross-browser testing and emerged with vendor-prefix scars.</p>
+                    <p class="quest-reward">Reward: +55 Gold, Polyfill Potion</p>
+                </div>
+                <div class="quest-card">
+                    <span class="quest-status">Completed</span>
+                    <h3>Performance Optimization Peak</h3>
+                    <p>Scaled the heights of lighthouse scores, defeating render-blocking demons and unoptimized image ogres.</p>
+                    <p class="quest-reward">Reward: +80 Gold, Webpack of Holding</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="tavern" class="tavern">
+            <h2 class="section-title">THE DRAGON'S INN</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Seek me at the tavern to discuss new adventures, join my party, or share tales of your own quests.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label class="form-label">Your Character Name</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Pigeon Mail Address</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Your Message Scroll</label>
+                    <textarea class="form-input" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message Raven</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#about">Character</a>
+                <a href="#stats">Abilities</a>
+                <a href="#quests">Quests</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>© 2023 Adventurer's Guild. All treasures reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animate stat bars on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.stat-fill');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 300);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+
+            // Add hover effect to quest cards
+            const questCards = document.querySelectorAll('.quest-card');
+            questCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.boxShadow = '0 5px 15px rgba(201, 162, 39, 0.3)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '3px 3px 8px rgba(0,0,0,0.1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
