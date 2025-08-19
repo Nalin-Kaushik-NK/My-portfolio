@@ -114,6 +114,20 @@
             position: relative;
             text-align: center;
         }
+        
+        .hero-level {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--ruby);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
 
         .character-sprite {
             width: 300px;
@@ -446,13 +460,14 @@
         <!-- Hero/Character Section -->
         <section id="about" class="hero">
             <div class="hero-text">
-                <h1>Lvl 35 Web Knight</h1>
+                <h1>Nalin Kaushik</h1>
                 <p>Greetings, traveler! I am Sir Code-a-lot, a seasoned adventurer in the realm of web development. With my trusty keyboard and enchanted IDE, I've battled countless bugs and conquered many frameworks.</p>
                 <p>My journey began in the humble village of HTML, where I first learned to structure my thoughts. Since then, I've trained in the mystical arts of CSS and JavaScript, earning my place among the Knights of Responsive Design.</p>
                 <button class="submit-btn" style="margin-top: 1rem;">View Quest Log</button>
             </div>
             <div class="hero-image">
                 <img src="https://placehold.co/300x300" alt="Pixel art character portrait" class="character-sprite floating">
+                 <div class="hero-level">Lv. 35</div> <!-- Added level badge -->
             </div>
         </section>
 
@@ -461,47 +476,52 @@
             <h2 class="section-title">CHARACTER ATTRIBUTES</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>HTML Mastery</h3>
+                    <h3>Python Tamer</h3>
                     <div class="stat-bar">
                         <div class="stat-fill" style="width: 95%"></div>
                     </div>
-                    <p>Wielder of semantic markup and accessibility spells</p>
+                    <p>With unmatched mastery, bind the wild spirit of Python to users will. Its syntax slithers at users command, executing elegant spells of logic and bending the digital realm to obey.</p>
                 </div>
                 <div class="stat-card">
-                    <h3>CSS Wizardry</h3>
+                    <h3>GCP Cloudshaper</h3>
                     <div class="stat-bar">
                         <div class="stat-fill" style="width: 90%"></div>
                     </div>
-                    <p>Conjurer of responsive layouts and animations</p>
+                    <p>Bend the power of Google Cloud, summoning scalable realms at will.</p>
                 </div>
-                <div class="stat-card">
-                    <h3>JavaScript Power</h3>
-                    <div class="stat-bar">
-                        <div class="stat-fill" style="width: 85%"></div>
-                    </div>
-                    <p>Master of ES6+ and framework combat</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Debugging Luck</h3>
-                    <div class="stat-bar">
-                        <div class="stat-fill" style="width: 75%"></div>
-                    </div>
-                    <p>Finder of needles in stack trace haystacks</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Backend Stamina</h3>
-                    <div class="stat-bar">
-                        <div class="stat-fill" style="width: 70%"></div>
-                    </div>
-                    <p>Endurer of server crashes and database migrations</p>
-                </div>
+                
                 <div class="stat-card">
                     <h3>Git Navigation</h3>
                     <div class="stat-bar">
                         <div class="stat-fill" style="width: 80%"></div>
                     </div>
-                    <p>Survivor of merge conflicts and rebase battles</p>
+                    <p>Traverse the forest of branches with ease, merging paths, rewinding time, and charting history without losing your way. Survivor of merge conflicts and rebase battles</p>
                 </div>
+                
+                <div class="stat-card">
+                  
+                    <h3>Rhythmblade</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 85%"></div>
+                    </div>
+                    <p>Channel the power of rhythm into every step, striking with flawless timing and mesmerizing flow.</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Harmony Sage</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 75%"></div>
+                    </div>
+                    <p>Balance chords and tones, summoning resonance that unites all who listen.</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Data Alchemist</h3>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 70%"></div>
+                    </div>
+                    <p>Through arcane transformations, you transmute raw, chaotic data into clean, structured knowledge — a golden resource for all who seek truth</p>
+                </div>
+                
             </div>
         </section>
 
@@ -509,29 +529,30 @@
         <section id="guild" class="guild-hall">
             <h2 class="section-title">GUILD CONNECTIONS</h2>
             <div class="social-grid">
-                <div class="social-card">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <p>Explore my code repositories</p>
-                    <a href="#" class="social-link">Visit Guild</a>
-                </div>
+
                 <div class="social-card">
                     <i class="fab fa-linkedin"></i>
                     <h3>LinkedIn</h3>
                     <p>Professional network</p>
-                    <a href="#" class="social-link">Visit Guild</a>
+                    <a href="https://www.linkedin.com/in/nalin-kaushik-abb3a8223/" class="social-link">Visit Guild</a>
                 </div>
                 <div class="social-card">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
                     <h3>Twitter</h3>
                     <p>Daily updates</p>
+                    <a href="https://www.instagram.com/_nalin_nk_/#" class="social-link">Visit Guild</a>
+                </div>
+                <div class="social-card">
+                    <i class="fab fa-spotify"></i>
+                    <h3>Spotify</h3>
+                    <p>Creative experiments</p>
                     <a href="#" class="social-link">Visit Guild</a>
                 </div>
                 <div class="social-card">
-                    <i class="fab fa-codepen"></i>
-                    <h3>CodePen</h3>
-                    <p>Creative experiments</p>
-                    <a href="#" class="social-link">Visit Guild</a>
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Explore my code repositories</p>
+                    <a href="https://github.com/Nalin-Kaushik-NK" class="social-link">Visit Guild</a>
                 </div>
             </div>
         </section>
@@ -541,21 +562,21 @@
             <h2 class="section-title">SIDE QUESTS</h2>
             <div class="hobbies-grid">
                 <div class="hobby-card">
-                    <h3>🎮 Retro Gaming</h3>
-                    <p>Exploring classic GBA titles and pixel art wonders</p>
+                    <h3>🎮 Joystick Knight</h3>
+                    <p>Loves to play video games</p>
                 </div>
                 <div class="hobby-card">
-                    <h3>🎨 Pixel Art</h3>
-                    <p>Creating 16-bit style sprites and textures</p>
+                    <h3>🎵 Stringstorm</h3>
+                    <p>learning the art of music</p>
                 </div>
                 <div class="hobby-card">
-                    <h3>📚 RPGs</h3>
-                    <p>Playing and analyzing game design</p>
+                    <h3>🏔️ Trailblazer</h3>
+                    <p>Always ready to explore new place and go for trek</p>
                 </div>
-                <div class="hobby-card">
-                    <h3>🎵 Chiptune</h3>
-                    <p>Composing retro-inspired music</p>
-                </div>
+                <!--<div class="hobby-card">-->
+                <!--    <h3>🎵 Chiptune</h3>-->
+                <!--    <p>Composing retro-inspired music</p>-->
+                <!--</div>-->
             </div>
         </section>
 
